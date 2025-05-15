@@ -6,7 +6,7 @@
 /*   By: amaligno <amaligno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:01:22 by amaligno          #+#    #+#             */
-/*   Updated: 2025/05/15 17:06:35 by amaligno         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:08:03 by amaligno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    stringToUpper(string &str)
         *it = toupper(*it);
 }
 
-template <typename T> void print_element(T &value)
+template <typename T> void printElement(T &value)
 {
     cout << value << ", ";   
 }
@@ -47,23 +47,23 @@ int main()
     string  str_array[3] = {"something", "hello", "world"};
     
     cout << "--------int-array--------\n";
-    ::iter(int_array, 5, print_element<int>);
+    ::iter(int_array, 5, printElement<int>);
     cout << '\n';
     ::iter(int_array, 5, addOne);
-    ::iter(int_array, 5, print_element<int>);
+    ::iter(int_array, 5, printElement<int>);
     cout << '\n';
 
     cout << "--------char-array--------\n";
-    iter(char_array, strlen(char_array), print_element<char>);
+    iter(char_array, strlen(char_array), printElement<char>);
     cout << '\n';
     iter<char>(char_array, strlen(char_array), charToUpper);
-    iter(char_array, strlen(char_array), print_element<char>);
+    iter(char_array, strlen(char_array), printElement<char>);
     cout << '\n';
     
     cout << "--------string-array--------\n";
-    iter(str_array, 3, print_element<string>);
+    iter(str_array, 3, printElement<string>);
     cout << '\n';
     iter(str_array, 3, stringToUpper);
-    iter(str_array, 3, print_element<string>);
+    iter(str_array, 3, printElement<string>);
     cout << '\n';
 }
