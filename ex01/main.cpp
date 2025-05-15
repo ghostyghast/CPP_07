@@ -6,7 +6,7 @@
 /*   By: amaligno <amaligno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:01:22 by amaligno          #+#    #+#             */
-/*   Updated: 2025/05/15 17:02:35 by amaligno         ###   ########.fr       */
+/*   Updated: 2025/05/15 17:06:35 by amaligno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@
 using std::cout;
 using std::string;
 
-void    add_one(int *i)
+void    addOne(int &i)
 {
-    (*i)+= 1;
+    i+= 1;
 }
 
-void    my_toUpper(char *c)
+void    charToUpper(char &c)
 {
-    if (*c >='a' && *c <= 'z')
-        *c -= 32;
+    if (c >='a' && c <= 'z')
+        c -= 32;
 }
 
-void    stringToUpper(string *str)
+void    stringToUpper(string &str)
 {
-    for (string::iterator it = str->begin(); it != str->end(); it++)
+    for (string::iterator it = str.begin(); it != str.end(); it++)
         *it = toupper(*it);
 }
 
-template <typename T> void print_element(T *value)
+template <typename T> void print_element(T &value)
 {
-    cout << *value << ", ";   
+    cout << value << ", ";   
 }
 
 int main()
@@ -49,14 +49,14 @@ int main()
     cout << "--------int-array--------\n";
     ::iter(int_array, 5, print_element<int>);
     cout << '\n';
-    ::iter(int_array, 5, add_one);
+    ::iter(int_array, 5, addOne);
     ::iter(int_array, 5, print_element<int>);
     cout << '\n';
 
     cout << "--------char-array--------\n";
     iter(char_array, strlen(char_array), print_element<char>);
     cout << '\n';
-    iter<char>(char_array, strlen(char_array), my_toUpper);
+    iter<char>(char_array, strlen(char_array), charToUpper);
     iter(char_array, strlen(char_array), print_element<char>);
     cout << '\n';
     
