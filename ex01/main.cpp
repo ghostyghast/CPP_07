@@ -6,7 +6,7 @@
 /*   By: amaligno <amaligno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:01:22 by amaligno          #+#    #+#             */
-/*   Updated: 2025/05/15 17:08:03 by amaligno         ###   ########.fr       */
+/*   Updated: 2025/05/16 13:35:27 by amaligno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int main()
     string  str_array[3] = {"something", "hello", "world"};
     
     cout << "--------int-array--------\n";
-    ::iter(int_array, 5, printElement<int>);
+    iter(int_array, 5, printElement<int>);
     cout << '\n';
-    ::iter(int_array, 5, addOne);
-    ::iter(int_array, 5, printElement<int>);
+    iter(int_array, 5, addOne);
+    iter(int_array, 5, printElement<int>);
     cout << '\n';
 
     cout << "--------char-array--------\n";
