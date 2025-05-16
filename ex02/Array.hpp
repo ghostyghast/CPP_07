@@ -6,7 +6,7 @@
 /*   By: amaligno <amaligno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:09:43 by amaligno          #+#    #+#             */
-/*   Updated: 2025/05/15 18:48:10 by amaligno         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:06:51 by amaligno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ template <typename T> class Array
 		Array(unsigned int n);
 		Array(const Array& copy);
 		~Array();
-		Array&	operator=(const Array& copy);
-		T&		operator[](size_t n);
+		Array&			operator=(const Array& copy);
+		T&				operator[](size_t n);
+		const T&		operator[](size_t n) const;
 
-		size_t	size(void) const;
+		size_t			size(void) const;
 
 	private:
-		T		*_elements;
+		T			*_elements;
 		size_t	_size;
 };
 

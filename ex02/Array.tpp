@@ -6,7 +6,7 @@
 /*   By: amaligno <amaligno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:13:02 by amaligno          #+#    #+#             */
-/*   Updated: 2025/05/15 19:08:40 by amaligno         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:17:25 by amaligno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 using std::cout;
 
 template <typename T>
+
 Array<T>::Array() : _elements(new T[0]), _size(0)
 {
 }
@@ -45,13 +46,22 @@ template <typename T>
 Array<T>&	Array<T>::operator=(const Array<T>& copy)
 {
 	this->_size = copy._size;
-	delete this->_elements;
+	delete[] this->_elements;
+	this->_elements = new T[this->_size];
 	memcpy(this->_elements, copy._elements, this->_size);
 	return (*this);
 }
 
 template <typename T>
 T&	Array<T>::operator[](size_t n)
+{
+	if (n >= this->_size)
+		throw std::exception();
+	return (this->_elements[n]);
+}
+
+template <typename T>
+const T&	Array<T>::operator[](size_t n) const
 {
 	if (n >= this->_size)
 		throw std::exception();
